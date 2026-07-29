@@ -23,6 +23,6 @@ public:
 protected:
 	/** Return true if A comes before B. A and B are guaranteed to be valid. */
 	UFUNCTION(BlueprintNativeEvent)
-	bool CalculateResult(const UObject* A, const UObject* B, const UObject* Context) const;
-	virtual bool CalculateResult_Implementation(const UObject* A, const UObject* B, const UObject* Context) const { return false; }
+	bool DoesAComeFirst(const UObject* A, const UObject* B, const UObject* Context) const;
+	virtual bool DoesAComeFirst_Implementation(const UObject* A, const UObject* B, const UObject* Context) const { return false; }
 };

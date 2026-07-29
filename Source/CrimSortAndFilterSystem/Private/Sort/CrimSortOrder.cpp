@@ -18,5 +18,5 @@ bool UCrimSortOrder::GetResult(const UObject* A, const UObject* B, const UObject
 		return false;
 	}
 	
-	return CalculateResult(A, B, Context);
+	return DoesAComeFirst(A, B, Context);
 }
