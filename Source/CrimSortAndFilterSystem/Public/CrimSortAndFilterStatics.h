@@ -22,7 +22,7 @@ public:
 	UFUNCTION(BlueprintCallable, BlueprintPure = false, Category = "Filter", DisplayName = "Filter")
 	void FilterObjects(UPARAM(ref) TArray<UObject*>& Objects, const TArray<UCrimFilter*>& Filters, const UObject* Context = nullptr);
 	
-	UFUNCTION(BlueprintCallable, BlueprintPure = false, Category = "Filter", DisplayName = "Filter")
+	UFUNCTION(BlueprintCallable, BlueprintPure = false, Category = "Filter", DisplayName = "FilterPreset")
 	void FilterObjectsByPreset(UPARAM(ref) TArray<UObject*>& Objects, const UCrimFilterPreset* FilterPreset, const UObject* Context = nullptr);
 	
 	UFUNCTION(BlueprintCallable, BlueprintPure = false, Category = "Sort", DisplayName = "Sort")
