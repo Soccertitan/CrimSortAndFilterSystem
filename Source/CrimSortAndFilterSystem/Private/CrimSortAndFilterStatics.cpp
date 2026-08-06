@@ -8,33 +8,34 @@
 #include "Sort/CrimSortOrder.h"
 #include "Sort/CrimSortOrderPreset.h"
 
-void UCrimSortAndFilterStatics::FilterObjects(TArray<UObject*>& Objects, const TArray<UCrimFilter*>& Filters, const UObject* Context)
+void UCrimSortAndFilterStatics::FilterObjects(const TArray<UObject*>& Objects, TArray<UObject*>& FilteredObjects, const TArray<UCrimFilter*>& Filters, const UObject* Context)
 {
 	for (int32 Index = Objects.Num(); Index >= 0; --Index)
 	{
 		if (Objects[Index])
 		{
+			bool bAddObjectToFilteredObject = true;
 			for (UCrimFilter* Filter : Filters)
 			{
 				if (Filter && Filter->ShouldFilterObject(Objects[Index], Context))
 				{
-					Objects.RemoveAt(Index);
+					bAddObjectToFilteredObject = false;
 					break;
 				}
 			}
-		}
-		else
-		{
-			Objects.RemoveAt(Index);
+			if (bAddObjectToFilteredObject)
+			{
+				FilteredObjects.Add(Objects[Index]);
+			}
 		}
 	}
 }
 
-void UCrimSortAndFilterStatics::FilterObjectsByPreset(TArray<UObject*>& Objects, const UCrimFilterPreset* FilterPreset, const UObject* Context)
+void UCrimSortAndFilterStatics::FilterObjectsByPreset(const TArray<UObject*>& Objects, TArray<UObject*>& FilteredObjects, const UCrimFilterPreset* FilterPreset, const UObject* Context)
 {
 	if (FilterPreset)
 	{
-		FilterObjects(Objects, FilterPreset->Filters, Context);
+		FilterObjects(Objects, FilteredObjects, FilterPreset->Filters, Context);
 	}
 }
 

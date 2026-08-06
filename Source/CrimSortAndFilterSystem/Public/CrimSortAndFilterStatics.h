@@ -20,10 +20,10 @@ class CRIMSORTANDFILTERSYSTEM_API UCrimSortAndFilterStatics : public UBlueprintF
 	
 public:
 	UFUNCTION(BlueprintCallable, BlueprintPure = false, Category = "Filter", DisplayName = "Filter")
-	void FilterObjects(UPARAM(ref) TArray<UObject*>& Objects, const TArray<UCrimFilter*>& Filters, const UObject* Context = nullptr);
+	static void FilterObjects(const TArray<UObject*>& Objects, TArray<UObject*>& FilteredObjects, const TArray<UCrimFilter*>& Filters, const UObject* Context = nullptr);
 	
 	UFUNCTION(BlueprintCallable, BlueprintPure = false, Category = "Filter", DisplayName = "FilterPreset")
-	void FilterObjectsByPreset(UPARAM(ref) TArray<UObject*>& Objects, const UCrimFilterPreset* FilterPreset, const UObject* Context = nullptr);
+	static void FilterObjectsByPreset(const TArray<UObject*>& Objects, TArray<UObject*>& FilteredObjects, const UCrimFilterPreset* FilterPreset, const UObject* Context = nullptr);
 	
 	UFUNCTION(BlueprintCallable, BlueprintPure = false, Category = "Sort", DisplayName = "Sort")
 	static void SortObjects(UPARAM(ref) TArray<UObject*>& Objects, const TArray<UCrimSortOrder*>& SortOrders, const UObject* Context = nullptr);
