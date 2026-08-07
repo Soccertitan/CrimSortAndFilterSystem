@@ -11,7 +11,7 @@ class UCrimFilter;
 /**
  * 
  */
-UCLASS()
+UCLASS(BlueprintType)
 class CRIMSORTANDFILTERSYSTEM_API UCrimFilterPreset : public UDataAsset
 {
 	GENERATED_BODY()

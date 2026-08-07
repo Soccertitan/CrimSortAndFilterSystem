@@ -11,7 +11,7 @@ class UCrimSortOrder;
 /**
  * 
  */
-UCLASS()
+UCLASS(BlueprintType)
 class CRIMSORTANDFILTERSYSTEM_API UCrimSortOrderPreset : public UDataAsset
 {
 	GENERATED_BODY()
