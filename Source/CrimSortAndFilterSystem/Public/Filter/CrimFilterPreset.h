@@ -18,10 +18,14 @@ class CRIMSORTANDFILTERSYSTEM_API UCrimFilterPreset : public UDataAsset
 	
 public:
 	// Can be shown in the UI for the type of filter this preset is.
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	FText DisplayText;
 	
+	// Can be shown in the UI for the type of filter this preset is.
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	TSoftObjectPtr<UTexture2D> Icon;
+	
 	// The filters to evaluate.
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TArray<TObjectPtr<UCrimFilter>> Filters;
 };
